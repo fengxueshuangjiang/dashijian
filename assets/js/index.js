@@ -11,13 +11,13 @@ $.ajax({
     // 调用函数
     touxiang(res.data);
   },
-  //成功或者失败都会调用complete函数
-  complete: (res) => {
-    if (res.responseJSON.status === 1) {
-      location.href = '../../login.html';
-      localStorage.removeItem('token');
-    }
-  }
+  // //成功或者失败都会调用complete函数
+  // complete: (res) => {
+  //   if (res.responseJSON.status === 1) {
+  //     location.href = '../../login.html';
+  //     localStorage.removeItem('token');
+  //   }
+  // }
 })
 //转换头像和欢迎名字
 function touxiang(user) {
