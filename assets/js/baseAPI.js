@@ -8,10 +8,10 @@ $.ajaxPrefilter((val) => {
       Authorization: localStorage.getItem('token') || ''
     }
   }
-  val.complete = (res) => {
-    if (res.responseJSON.status === 1) {
-      location.href = '../../login.html';
-      localStorage.removeItem('token');
-    }
-  }
+  // val.complete = (res) => {
+  //   if (res.responseJSON.status === 1) {
+  //     location.href = '../../login.html';
+  //     localStorage.removeItem('token');
+  //   }
+  // }
 })

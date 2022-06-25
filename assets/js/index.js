@@ -1,31 +1,38 @@
 // 发送Ajax请求
-$.ajax({
-  method: 'GET',
-  url: '/my/userinfo',
+userinfos();
 
-  success: function (res) {
-    // console.log(res);
-    if (res.status !== 0) {
-      return layui.layer.msg('获取信息失败')
+function userinfos() {
+
+  $.ajax({
+    method: 'GET',
+    url: '/my/userinfo',
+
+    success: function (res) {
+      // console.log(res);
+      if (res.status !== 0) {
+        return layui.layer.msg('获取信息失败')
+      }
+      // 调用函数
+      // console.log(res);
+      touxiang(res.data);
+    },
+    //成功或者失败都会调用complete函数
+    complete: (res) => {
+      if (res.responseJSON.status === 1) {
+        location.href = '../../login.html';
+        localStorage.removeItem('token');
+      }
     }
-    // 调用函数
-    touxiang(res.data);
-  },
-  // //成功或者失败都会调用complete函数
-  // complete: (res) => {
-  //   if (res.responseJSON.status === 1) {
-  //     location.href = '../../login.html';
-  //     localStorage.removeItem('token');
-  //   }
-  // }
-})
+  })
+}
+
 //转换头像和欢迎名字
 function touxiang(user) {
   var name = user.nickname || user.username;
   $('.span01').html(name);
   if (user.user_pic !== null) {
     $('.text_avatar').hide();
-    $('.layui-nav-img').show().attr('src', 'user_pic');
+    $('.layui-nav-img').show().attr('src', user.user_pic);
   } else {
     $('.layui-nav-img').hide();
     var first = name[0].toUpperCase();

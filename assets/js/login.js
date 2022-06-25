@@ -49,7 +49,7 @@ $('#form_reg').on('submit', (e) => {
     password: $('.password1').val()
   }, (res) => {
     if (res.status !== 0) {
-      return layer.msg(res.message)
+      layer.msg(res.message)
     } else {
       layer.msg('注册成功')
     }
