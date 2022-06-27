@@ -1,7 +1,8 @@
 var form = layui.form;
 var layer = layui.layer;
+// 定义验证规则
 form.verify({
-  username: function (value, item) { //value：表单的值、item：表单的DOM对象
+  username: function (value, item) {
     if (!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)) {
       return '用户名不能有特殊字符';
     }
@@ -11,8 +12,6 @@ form.verify({
     if (/^\d+\d+\d$/.test(value)) {
       return '用户名不能全为数字';
     }
-
-    //如果不想自动弹出默认提示框，可以直接返回 true，这时你可以通过其他任意方式提示（v2.5.7 新增）
     if (value === 'cao') {
       return '用户名不能为敏感词';
     }
@@ -33,6 +32,7 @@ form.verify({
     }
   }
 });
+// 监听表单提交事件,发送ajax请求,修改密码
 $('.form01').on('submit', (e) => {
   e.preventDefault();
   $.ajax({

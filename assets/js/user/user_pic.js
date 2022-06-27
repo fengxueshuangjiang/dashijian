@@ -18,7 +18,6 @@ $('#btn01').on('click', () => {
     const file = e.target.files[0];
     //将文件转化为路径
     const newImgURL = URL.createObjectURL(file);
-
     //重新初始化裁剪区
     $image
       .cropper('destroy') // 销毁旧的裁剪区域
@@ -28,7 +27,8 @@ $('#btn01').on('click', () => {
 })
 $('#btn02').on('click', () => {
   var dataURL = $image
-    .cropper('getCroppedCanvas', { // 创建一个 Canvas 画布
+    // 创建一个 Canvas 画布
+    .cropper('getCroppedCanvas', {
       width: 100,
       height: 100
     })

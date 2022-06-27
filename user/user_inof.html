@@ -14,8 +14,10 @@
   <div class="d01">
     <div class="d02">更改用户信息</div>
     <div class="layui-card">
+      <!-- lay-filter根据数据自动渲染页面 -->
       <form class="layui-form form01" lay-filter="formuserinfo">
         <input type="hidden" name="id">
+        <!-- 登录名称 -->
         <div class="layui-form-item">
           <label class="layui-form-label">登录名称</label>
           <div class="layui-input-block">
@@ -23,6 +25,7 @@
               class="layui-input">
           </div>
         </div>
+        <!-- 用户昵称 -->
         <div class="layui-form-item">
           <label class="layui-form-label">用户昵称</label>
           <div class="layui-input-block">
@@ -30,6 +33,7 @@
               placeholder="请输入昵称" autocomplete="off" class="layui-input">
           </div>
         </div>
+        <!-- 用户邮箱 -->
         <div class="layui-form-item">
           <label class="layui-form-label">用户邮箱</label>
           <div class="layui-input-block">
@@ -37,6 +41,7 @@
               placeholder="请输入邮箱" autocomplete="off" class="layui-input">
           </div>
         </div>
+        <!-- 提交 -->
         <div class="layui-form-item">
           <div class="layui-input-block">
             <button class="layui-btn btn01" lay-submit lay-filter="formDemo">提交修改</button>

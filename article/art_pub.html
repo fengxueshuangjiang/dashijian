@@ -17,6 +17,7 @@
       <div class="layui-card-header">发表文章</div>
       <div class="layui-card-body">
         <form class="layui-form" id="form01">
+          <!-- 文章标题 -->
           <div class="layui-form-item">
             <label class="layui-form-label">文章标题</label>
             <div class="layui-input-block">
@@ -24,6 +25,7 @@
                 class="layui-input">
             </div>
           </div>
+          <!-- 文章类别下拉表单 -->
           <div class="layui-form-item">
             <label class="layui-form-label">文章类别</label>
             <div class="layui-input-block">
@@ -31,12 +33,14 @@
               </select>
             </div>
           </div>
+          <!-- 文章内容区域 -->
           <div class="layui-form-item">
             <label class="layui-form-label">文章内容</label>
             <div class="layui-input-block" style="height: 420px;">
               <textarea name="content" class="tex01"></textarea>
             </div>
           </div>
+          <!-- 封面 -->
           <div class="layui-form-item">
             <!-- 左侧的 label -->
             <label class="layui-form-label">文章封面</label>
@@ -67,6 +71,7 @@
       </div>
     </div>
   </div>
+  <!-- 魔板引擎 -->
   <script type="text/html" id="scri001">
     <option value="">请选择一个文章类别</option>
     {{each data}}

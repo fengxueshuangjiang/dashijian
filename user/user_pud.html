@@ -14,6 +14,7 @@
   <div class="layui-card">
     <form class="layui-form form01" lay-filter="formuserinfo">
       <input type="hidden" name="id">
+      <!-- 原密码 -->
       <div class="layui-form-item">
         <label class="layui-form-label">原密码</label>
         <div class="layui-input-block">
@@ -21,6 +22,7 @@
             autocomplete="off" class="layui-input oldPwd">
         </div>
       </div>
+      <!-- 新密码 -->
       <div class="layui-form-item">
         <label class="layui-form-label">新密码</label>
         <div class="layui-input-block">
@@ -28,6 +30,7 @@
             placeholder="请输入新密码" autocomplete="off" class="layui-input newPwd">
         </div>
       </div>
+      <!-- 确认新密码 -->
       <div class="layui-form-item">
         <label class="layui-form-label">确认新密码</label>
         <div class="layui-input-block">
@@ -35,6 +38,7 @@
             placeholder="请输入再次输入新密码" autocomplete="off" class="layui-input rePwd">
         </div>
       </div>
+      <!-- 提交修改 -->
       <div class="layui-form-item">
         <div class="layui-input-block">
           <button class="layui-btn btn01" lay-submit lay-filter="formDemo">修改密码</button>

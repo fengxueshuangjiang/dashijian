@@ -15,11 +15,12 @@ $('.btn02').on('click', (e) => {
   e.preventDefault();
   huoqu();
 })
+//监听表单提交事件,来修改用户的信息
 $('.form01').on('submit', (e) => {
   e.preventDefault();
   fasong();
 })
-
+//获取用户信息方法
 function huoqu() {
   $.ajax({
     method: "GET",
@@ -28,13 +29,12 @@ function huoqu() {
       if (res.status !== 0) {
         return layui.layer.msg('获取用户信息失败')
       } else {
-        // console.log(res);
         form.val('formuserinfo', res.data)
       }
     }
   })
 }
-
+//修改用户信息方法
 function fasong() {
   $.ajax({
     method: "POST",

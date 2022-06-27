@@ -11,6 +11,7 @@ $(function () {
   })
 })
 //定义验证规则
+//可以是对象类型,也可以是数组类型
 var form = layui.form;
 var layer = layui.layer;
 form.verify({
@@ -24,8 +25,6 @@ form.verify({
     if (/^\d+\d+\d$/.test(value)) {
       return '用户名不能全为数字';
     }
-
-    //如果不想自动弹出默认提示框，可以直接返回 true，这时你可以通过其他任意方式提示（v2.5.7 新增）
     if (value === 'cao') {
       return '用户名不能为敏感词';
     }
@@ -40,10 +39,9 @@ form.verify({
     }
   }
 });
+//监听表单的提交事件
 $('#form_reg').on('submit', (e) => {
   e.preventDefault();
-  // console.log($('.username1').val());
-  // console.log($('.password1').val());
   $.post('/api/reguser', {
     username: $('.username1').val(),
     password: $('.password1').val()
@@ -57,8 +55,6 @@ $('#form_reg').on('submit', (e) => {
 })
 $('#form_login').on('submit', (e) => {
   e.preventDefault();
-  // console.log($('.username1').val());
-  // console.log($('.password1').val());
   $.post('/api/login', {
     username: $('.username2').val(),
     password: $('.password2').val()

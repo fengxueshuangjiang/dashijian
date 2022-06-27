@@ -14,11 +14,14 @@
   <div class="d01">
     <div class="d02">
       <span>文章类别管理</span>
+      <!-- 添加类别按钮 -->
       <button type="button" class="layui-btn layui-btn-normal layui-btn-sm btn00">添加类别</button>
     </div>
     <div class="layui-card">
+      <!-- 类别表格 -->
       <table class="layui-table">
         <colgroup>
+          <!-- 表格的宽度占比 -->
           <col>
           <col>
           <col width="300px">
@@ -34,6 +37,7 @@
         </tbody>
       </table>
     </div>
+    <!-- 模板引擎 -->
     <script type="text/html" id="scri01">
       {{each data}}
       <tr>
@@ -48,6 +52,7 @@
       </tr>
       {{/each}}
     </script>
+    <!-- 添加模板引擎 -->
     <script type="text/html" id="scri02">
       <form class="layui-form form01">
         <div class="layui-form-item">
@@ -72,6 +77,7 @@
         </div>
       </form>
     </script>
+    <!-- 编辑模板引擎 -->
     <script type="text/html" id="scri03">
       <form class="layui-form form03" lay-filter="form02">
         <input type="hidden" name="Id">

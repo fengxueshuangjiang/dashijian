@@ -15,12 +15,13 @@
     <div class="layui-card">
       <div class="layui-card-header">文章列表</div>
       <div class="layui-card-body">
+        <!-- 文章分类下拉菜单 -->
         <form class="layui-form" id="form01">
           <div class="layui-form-item layui-input-inline">
             <select name="cate_id" class="sel01" lay-verify="">
-
             </select>
           </div>
+          <!-- 所有状态下拉菜单 -->
           <div class="layui-form-item layui-input-inline">
             <select name="state" class="sel02" lay-verify="">
               <option value="">所有状态</option>
@@ -28,10 +29,12 @@
               <option value="草稿">草稿</option>
             </select>
           </div>
+          <!-- 筛选按钮 -->
           <div class="layui-form-item layui-input-inline">
             <button class="layui-btn layui-btn-normal" lay-submit lay-filter="formDemo">筛选</button>
           </div>
         </form>
+        <!-- 文章列表的表格 -->
         <table class="layui-table">
           <colgroup>
             <col>
@@ -52,11 +55,13 @@
           <tbody>
           </tbody>
         </table>
-        <div id="test1">123</div>
+        <!-- 分页区域 -->
+        <div id="test1"></div>
       </div>
-
     </div>
   </div>
+  <div class="d02"></div>
+  <!-- 魔版引擎 -->
   <script type="text/html" id="scri001">
     {{each data}}
     <tr>
@@ -65,18 +70,61 @@
       <td>{{$value.pub_date|sjglq}}</td>
       <td>{{$value.state}}</td>
       <td>
-        <button type="button" class="layui-btn layui-btn-normal layui-btn-xs">编辑</button>
+        <button type="button" data-id="{{$value.Id}}"
+          class="btn-insert layui-btn layui-btn-normal layui-btn-xs">查看</button>
         <button type="button" data-id="{{$value.Id}}"
           class="layui-btn layui-btn-normal btn-del layui-btn-xs">删除</button>
       </td>
     </tr>
     {{/each}}
   </script>
+  <!-- 魔板引擎 -->
   <script type="text/html" id="scri002">
     <option value="">所有分类</option>
     {{each data}}
     <option value="{{$value.Id}}">{{$value.name}}</option>
     {{/each}}
+  </script>
+  <script type="text/html" id="scri003">
+    <div style="background-color: #ffc0ff; padding: 10px 30px;">
+      <h1>文章详情</h1>
+      <form class="layui-form" action="">
+        <div class="layui-form-item">
+          <!-- <label class="layui-form-label">标题</label>
+        <div class="layui-input-block">
+          <img src="{{data.cover_img}}">
+        </div> -->
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">标题</label>
+          <div class="layui-input-block">
+            <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off"
+              class="layui-input" value="{{data.title}}">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">状态</label>
+          <div class="layui-input-block">
+            <input type="text" name="state" required lay-verify="required" readonly autocomplete="off"
+              class="layui-input" value="{{data.state}}">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">发布时间</label>
+          <div class="layui-input-block">
+            <input type="text" name="pub_date" required lay-verify="required" readonly autocomplete="off"
+              class="layui-input" value="{{data.pub_date}}">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">内容</label>
+          <div class="layui-input-block">
+            <input type="text" name="content" required lay-verify="required" readonly autocomplete="off"
+              class="layui-input" value="{{data.content}}">
+          </div>
+        </div>
+      </form>
+    </div>
   </script>
   <script src="../assets/lib/jquery.js"></script>
   <script src="../assets/js/baseAPI.js"></script>

@@ -2,21 +2,17 @@
 userinfos();
 
 function userinfos() {
-
   $.ajax({
     method: 'GET',
     url: '/my/userinfo',
-
     success: function (res) {
-      // console.log(res);
       if (res.status !== 0) {
         return layui.layer.msg('获取信息失败')
       }
       // 调用函数
-      // console.log(res);
       touxiang(res.data);
     },
-    //成功或者失败都会调用complete函数
+    //调用complete函数
     complete: (res) => {
       if (res.responseJSON.status === 1) {
         location.href = '../../login.html';

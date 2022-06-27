@@ -1,6 +1,7 @@
-wzhq();
 var form = layui.form;
-//获取加载文章名称
+wzhq();
+
+//获取加载文章名称方法
 function wzhq() {
   $.ajax({
     method: 'GET',
@@ -18,7 +19,7 @@ function wzhq() {
 }
 
 //添加文章名称
-var tcc1 = null;
+var tcc1 = null; //定义一个变量
 $('.btn00').on('click', () => {
   tcc1 = layer.open({
     title: '修改文章类别',
@@ -69,7 +70,7 @@ $('tbody').on('click', '.btn01', function (e) {
     }
   })
 })
-//修改文章名称--渲染数据
+//修改文章名称--修改数据
 $('body').on('submit', '.form03', function (e) {
   e.preventDefault();
   $.ajax({
@@ -108,6 +109,5 @@ $('tbody').on('click', '.btn02', function () {
         }
       }
     })
-
   })
 })

@@ -8,6 +8,7 @@ var datas = {
 }
 wzsj();
 wzfl();
+// 初始化时间
 template.defaults.imports.sjglq = function (date) {
   const dt = new Date(date);
   var y = dt.getFullYear();
@@ -18,7 +19,7 @@ template.defaults.imports.sjglq = function (date) {
   var ss = zero(dt.getSeconds());
   return y + '-' + m + '-' + d + ' ' + hh + ':' + mm + ':' + ss;
 }
-
+// 补零
 function zero(n) {
   return n > 9 ? n : '0' + n;
 }
@@ -88,7 +89,7 @@ function wzfy(total) {
 //点击删除删除文章
 $('tbody').on('click', '.btn-del', function () {
   var delsum = $('.btn-del').length;
-  console.log(delsum);
+  // console.log(delsum);
   var id = $(this).attr('data-id')
   layer.confirm('确认删除?', {
     icon: 3,
@@ -113,5 +114,22 @@ $('tbody').on('click', '.btn-del', function () {
       }
     })
     layer.close(index);
+  })
+})
+$('tbody').on('click', '.btn-insert', function () {
+  var id = $(this).attr('data-id')
+  $.ajax({
+    method: 'GET',
+    url: '/my/article/' + id,
+    success: (res) => {
+      if (res.status !== 0) {
+        return layui.layer.msg('获取文章失败')
+      } else {
+        // console.log(res);
+        var htmlStr = template('scri003', res)
+        $('.d02').html(htmlStr);
+        return layui.layer.msg('获取文章成功')
+      }
+    }
   })
 })
