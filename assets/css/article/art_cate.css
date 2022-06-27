@@ -1,0 +1,23 @@
+body {
+  background-color: #ebebeb;
+  padding: 15px;
+}
+
+.d01 {
+  background-color: #fff;
+  padding: 10px;
+}
+
+.d02 {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.layui-input {
+  width: 300px;
+}

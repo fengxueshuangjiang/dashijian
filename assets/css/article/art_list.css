@@ -1,0 +1,17 @@
+body {
+  background-color: #ebebeb;
+  padding: 15px;
+}
+
+.d01 {
+  background-color: #fff;
+  padding: 10px;
+}
+
+.sel01 {
+  width: 300px;
+}
+
+.layui-btn {
+  vertical-align: middle;
+}
